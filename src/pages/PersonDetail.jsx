@@ -1,15 +1,27 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const PersonDetail = () => {
-    let { state } = useLocation()
-    console.log(state)
+    let { state: person } = useLocation();
+    let navigate = useNavigate()
+    console.log(person);
   return (
+    <div className="container text-center">
+      <h3>
+        {person?.first_name} {person?.avatar}
+      </h3>
+      <img className="ronded" src="{person?.avatar}" alt="" />
+      <p>{person?.email}</p>
       <div>
-          <h3>p</h3>
-      PersonDetail
+        <button onClick={() => navigate("/")} className="btn btn-success me-2">
+          Go Home
+        </button>
+        <button onClick={() => navigate(-1)} className="btn btn-warning">
+          Go Back
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default PersonDetail
+export default PersonDetail;
