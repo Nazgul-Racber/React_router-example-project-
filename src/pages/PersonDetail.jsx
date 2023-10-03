@@ -5,7 +5,8 @@ const PersonDetail = () => {
     let { state } = useLocation()
     console.log(state)
   return (
-    <div>
+      <div>
+          <h3>p</h3>
       PersonDetail
     </div>
   )
