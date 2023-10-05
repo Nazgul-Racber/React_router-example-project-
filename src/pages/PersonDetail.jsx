@@ -14,10 +14,11 @@ const PersonDetail = () => {
     const getPerson = () => {
       axios(`https://reqres.in/api/users/${id}`)
         .then((res) => setPerson(res.data.data))
-        .catch((err) => console.log(err));
-    };
+        .catch((err) => console.log(err))
+          
+        }
     // .finally(() => setLoading(false));
-
+    
     getPerson();
   }, []);
 
