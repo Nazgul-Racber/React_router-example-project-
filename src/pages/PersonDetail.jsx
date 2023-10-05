@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import NotFound from "./NotFound";
 
 const PersonDetail = () => {
   // let { state: person } = useLocation();
@@ -9,17 +10,25 @@ const PersonDetail = () => {
   let { id } = useParams()
   console.log({ id });
   const [person, setPerson] = useState({})
-
-  useEffect(() => {
+  const [error, setError] = useState(false)
+ 
     const getPerson = () => {
       axios(`https://reqres.in/api/users/${id}`)
         .then((res) => setPerson(res.data.data))
-        .catch((err) => console.log(err))
+
+        .catch((err) => {
+          setError(true)
+          console.log(err)
+        })
           
     }
-    
+    useEffect(() => {
     getPerson();
   }, []);
+
+  if (error) {
+    return <NotFound/>
+  }
 
   return (
     <div className="container text-center">
