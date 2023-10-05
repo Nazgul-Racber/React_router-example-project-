@@ -16,8 +16,7 @@ const PersonDetail = () => {
         .then((res) => setPerson(res.data.data))
         .catch((err) => console.log(err))
           
-        }
-    // .finally(() => setLoading(false));
+    }
     
     getPerson();
   }, []);
