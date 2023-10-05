@@ -10,15 +10,14 @@ const PersonDetail = () => {
   console.log({ id });
   const [person, setPerson] = useState({})
 
-  
+  useEffect(() => {
     const getPerson = () => {
       axios(`https://reqres.in/api/users/${id}`)
         .then((res) => setPerson(res.data.data))
-        .catch((err) => console.log(err))
-          
-        }
+        .catch((err) => console.log(err));
+    };
     // .finally(() => setLoading(false));
-    useEffect(() => {
+
     getPerson();
   }, []);
 
