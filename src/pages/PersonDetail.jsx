@@ -2,15 +2,16 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const PersonDetail = () => {
-    let { state: person } = useLocation();
-    let navigate = useNavigate()
-    console.log(person);
+  let { state: person } = useLocation();
+  let navigate = useNavigate();
+  console.log(person);
+
   return (
     <div className="container text-center">
       <h3>
-        {person?.first_name} {person?.avatar}
+        {person?.first_name} {person?.last_name}
       </h3>
-      <img className="ronded" src="{person?.avatar}" alt="" />
+      <img className="rounded" src={person?.avatar} alt="" />
       <p>{person?.email}</p>
       <div>
         <button onClick={() => navigate("/")} className="btn btn-success me-2">
