@@ -1,14 +1,29 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 const PersonDetail = () => {
-  let { state: person } = useLocation();
+  // let { state: person } = useLocation();
   let navigate = useNavigate();
-  console.log(person);
+  // console.log(person);
+  let { id } = useParams()
+  console.log({ id });
+  const [person, setPerson] = useState({})
+
+  useEffect(() => {
+    const getPerson = () => {
+      axios(`https://reqres.in/api/users/${id}`)
+        .then((res) => setPerson(res.data.data))
+        .catch((err) => console.log(err))
+          
+        }
+        // .finally(() => setLoading(false));
+    getPerson();
+  }, []);
 
   return (
     <div className="container text-center">
-      <h3>
+      {/* <h3>
         {person?.first_name} {person?.last_name}
       </h3>
       <img className="rounded" src={person?.avatar} alt="" />
@@ -20,7 +35,7 @@ const PersonDetail = () => {
         <button onClick={() => navigate(-1)} className="btn btn-warning">
           Go Back
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
