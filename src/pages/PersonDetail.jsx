@@ -13,7 +13,7 @@ const PersonDetail = () => {
   const [error, setError] = useState(false)
  
     const getPerson = () => {
-      axios(`https://reqres.in/api/user/${id}`)
+      axios(`https://reqres.in/api/users/${id}`)
         .then((res) => setPerson(res.data.data))
 
         .catch((err) => {
