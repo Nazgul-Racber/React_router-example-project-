@@ -11,6 +11,7 @@ const PersonDetail = () => {
   console.log({ id });
   const [person, setPerson] = useState({})
   const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(true)
  
     const getPerson = () => {
       axios(`https://reqres.in/api/users/${id}`)
@@ -28,6 +29,13 @@ const PersonDetail = () => {
 
   if (error) {
     return <NotFound/>
+  } else if (loading) {
+    return (
+      <div>
+        <img src="" alt="" />
+      </div>
+    )
+    
   }
 
   return (
