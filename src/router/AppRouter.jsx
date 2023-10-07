@@ -16,7 +16,9 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/paths" element={<Paths />} />
-        <Route path="/people" element={<People />} />
+        <Route path="/people" element={<People />}>
+          <Route path="fullStack" />
+        </Route>
         <Route path="/people/:id" element={<PersonDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
