@@ -8,6 +8,8 @@ import PersonDetail from "../pages/PersonDetail";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 import Footer from "../components/Footer";
+import Fullstack from "../pages/Fullstack";
+import Aws from "../pages/Aws";
 
 const AppRouter = () => {
   return (
@@ -15,10 +17,12 @@ const AppRouter = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/paths" element={<Paths />} />
-        <Route path="/people" element={<People />}>
-          <Route path="fullStack" />
+        <Route path="/paths" element={<Paths />}>
+          <Route index element={<Fullstack/>} />
+          <Route path="fullstack" element={<Fullstack/>} />
+          <Route path="aws" element={<Aws/>} />
         </Route>
+        <Route path="/people" element={<People />} />
         <Route path="/people/:id" element={<PersonDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
