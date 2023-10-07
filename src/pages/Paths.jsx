@@ -2,7 +2,7 @@ import React from 'react'
 
 const Paths = () => {
   return (
-    <div>
+    <div className='container mt-4'>
       Paths
     </div>
   )

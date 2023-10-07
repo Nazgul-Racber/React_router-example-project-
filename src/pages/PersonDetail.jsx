@@ -14,7 +14,9 @@ const PersonDetail = () => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
  
-    const getPerson = () => {
+    
+  useEffect(() => {
+      const getPerson = () => {
       axios(`https://reqres.in/api/users/${id}`)
         .then((res) => setPerson(res.data.data))
 
@@ -25,9 +27,8 @@ const PersonDetail = () => {
         .finally(() => setLoading(false))
           
     }
-    useEffect(() => {
     getPerson();
-  }, []);
+  }, [id]);
 
   if (error) {
     return <NotFound/>
