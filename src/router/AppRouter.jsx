@@ -1,4 +1,3 @@
-
 import Nav from "../components/Nav";
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
@@ -12,6 +11,7 @@ import Fullstack from "../pages/Fullstack";
 import Aws from "../pages/Aws";
 import Next from "../pages/Next";
 import React from "../pages/React";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRouter = () => {
   return (
@@ -27,7 +27,7 @@ const AppRouter = () => {
           </Route>
           <Route path="aws" element={<Aws />} />
         </Route>
-        <Route>
+        <Route element={<PrivateRoute />}>
           <Route path="/people" element={<People />} />
           <Route path="/people/:id" element={<PersonDetail />} />
         </Route>
